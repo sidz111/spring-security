@@ -38,6 +38,7 @@ public class SecurityConfig {
 		return daoAuthenticationProvider;
 	}
 	
+	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeHttpRequests()
@@ -50,11 +51,35 @@ public class SecurityConfig {
 		.anyRequest()
 		.authenticated()
 		.and()
-		.formLogin();
+		.formLogin().loginPage("/signin")
+		.loginProcessingUrl("/login")
+		.defaultSuccessUrl("/success") 
+		.permitAll();
 		
 		return httpSecurity.build();
 	}
 	
+	
+	
+	
+	
+//	@Bean
+//	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+//		httpSecurity.csrf().disable().authorizeHttpRequests()
+//		.requestMatchers("/admin")
+//		.hasRole("ADMIN")
+//		.requestMatchers("/user")
+//		.hasRole("USER")
+//		.requestMatchers("/")
+//		.permitAll()
+//		.anyRequest()
+//		.authenticated()
+//		.and()
+//		.formLogin();
+//		
+//		return httpSecurity.build();
+//	}
+//	
 	//==================================this is usiing simple In memory method===========================//
 	
 //	@Bean

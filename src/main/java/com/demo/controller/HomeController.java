@@ -27,6 +27,16 @@ public class HomeController {
 		return "admin";
 	}
 	
+	@GetMapping("/signin")
+	public String signinPage() {
+		return "signin";
+	}
+	
+	@GetMapping("/success")
+	public String successPage() {
+		return "success";
+	}
+	
 	
 //	@GetMapping("/user")
 //	public ResponseEntity<String> user(){

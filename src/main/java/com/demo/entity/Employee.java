@@ -11,6 +11,12 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	private String name;
+	private String department;
+	private String role;
+	private String email;
+	private String password;
 	public Integer getId() {
 		return id;
 	}
@@ -47,10 +53,6 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	private String name;
-	private String department;
-	private String role;
-	private String email;
-	private String password;
+	
 	
 }
